@@ -5,14 +5,9 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Wohnungssuche: Familie <span id="data-lastname-title"></span></title>
-    <!-- Підключення основного скрипта (він імпортує CSS) -->
     <script type="module" src="/src/main.js"></script>
   </head>
   <body>
-    <!-- 
-      Це приховане SVG-визначення. 
-      Ми можемо "використовувати" цю іконку будь-де на сторінці.
-    -->
     <svg style="display: none">
       <symbol
         id="icon-check"
@@ -27,12 +22,23 @@
       </symbol>
     </svg>
 
-    <!-- 1. Хедер (Шапка сайту) -->
     <header id="main-header">
       <div class="container">
         <a href="#" class="logo"
           >Familie <span id="data-lastname-nav"></span
         ></a>
+
+        <button
+          id="mobile-menu-toggle"
+          class="burger-menu"
+          aria-label="Menü öffnen"
+          aria-expanded="false"
+        >
+          <span class="burger-bar"></span>
+          <span class="burger-bar"></span>
+          <span class="burger-bar"></span>
+        </button>
+
         <nav id="main-nav">
           <ul>
             <li><a href="#about">Über Uns</a></li>
@@ -44,9 +50,7 @@
       </div>
     </header>
 
-    <!-- 2. Основний контент -->
     <main>
-      <!-- Розділ 1: Привітання (Hero) -->
       <section id="hero">
         <div class="container">
           <div class="hero-text">
@@ -55,18 +59,12 @@
               Ein zuverlässiges, freundliches Ehepaar sucht ein neues Zuhause in
               <span id="data-city"></span>.
             </p>
-            <!-- Блок про оплату -->
             <div class="payment-info">
               <strong>Finanzielle Sicherheit:</strong> Gesicherte Mietzahlung
               durch das Jobcenter <span id="data-city-jobcenter"></span>.
             </div>
           </div>
           <div class="hero-image">
-            <!-- 
-              ПОРАДА: Покладіть ваше фото у папку 'public'
-              і назвіть його 'familienfoto.jpg'.
-              Тоді просто змініть 'src' нижче на '/familienfoto.jpg'
-            -->
             <img
               src="https://placehold.co/600x400/E0E7FF/3730a3?text=Unser+Foto"
               alt="Foto von Vladyslav und Hanna"
@@ -77,7 +75,6 @@
         </div>
       </section>
 
-      <!-- Розділ 2: Про Нас -->
       <section id="about">
         <div class="container about-content">
           <h2>Über Uns</h2>
@@ -92,7 +89,7 @@
           </p>
           <p>
             Wir sind beide ausgebildete Marketing-Spezialisten mit
-            Universitätsabschluss. Um uns hier beruflich schnell zu integrieren,
+            Universitätsabschluss. Um uns here beruflich schnell zu integrieren,
             lernen wir beide intensiv Deutsch (aktuell A2-Niveau).
           </p>
           <p>
@@ -114,97 +111,109 @@
             Vermieter ist für uns selbstverständlich.
           </p>
 
-          <!-- Ключові характеристики -->
           <h3 style="text-align: center; margin-top: 2rem">
             Unsere Eigenschaften:
           </h3>
-          <div class="card-grid">
-            <div class="card">
+          <div class="feature-grid">
+            <div class="feature-card">
               <h3>Keine Haustiere</h3>
             </div>
-            <div class="card">
+            <div class="feature-card">
               <h3>Ruhig & Ordentlich</h3>
             </div>
-            <div class="card">
+            <div class="feature-card">
               <h3>Langfristig interessiert</h3>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Розділ 3: Гарантії -->
       <section id="guarantees">
         <div class="container">
           <h2>Ihre Sicherheiten als Vermieter</h2>
-          <ul class="icon-list">
-            <li>
+          <ul class="feature-grid">
+            <li class="feature-card">
               <svg class="icon"><use href="#icon-check"></use></svg>
-              <p>
-                <strong>Garantierte Zahlung:</strong> Pünktliche und garantierte
-                Mietzahlung durch das Jobcenter
-                <span class="data-city-multiple"></span>. Die offizielle
-                Zusicherung (Mietübernahme) wird sofort vorgelegt.
-              </p>
+              <div class="card-content">
+                <p>
+                  <strong>Garantierte Zahlung:</strong> Pünktliche und
+                  garantierte Mietzahlung durch das Jobcenter
+                  <span class="data-city-multiple"></span>. Die offizielle
+                  Zusicherung (Mietübernahme) wird sofort vorgelegt.
+                </p>
+              </div>
             </li>
-            <li>
+            <li class="feature-card">
               <svg class="icon"><use href="#icon-check"></use></svg>
-              <p>
-                <strong>Positive SCHUFA:</strong> Aktuelle und positive
-                SCHUFA-Auskünfte liegen vor und werden auf Wunsch sofort
-                übermittelt.
-              </p>
+              <div class="card-content">
+                <p>
+                  <strong>Positive SCHUFA:</strong> Aktuelle und positive
+                  SCHUFA-Auskünfte liegen vor und werden auf Wunsch sofort
+                  übermittelt.
+                </p>
+              </div>
             </li>
-            <li>
+            <li class="feature-card">
               <svg class="icon"><use href="#icon-check"></use></svg>
-              <p>
-                <strong>Haftpflichtversicherung:</strong> Eine private
-                Haftpflichtversicherung wird zum Einzug sofort abgeschlossen.
-              </p>
+              <div class="card-content">
+                <p>
+                  <strong>Haftpflichtversicherung:</strong> Eine private
+                  Haftpflichtversicherung wird zum Einzug sofort abgeschlossen.
+                </p>
+              </div>
             </li>
-            <li>
+            <li class="feature-card">
               <svg class="icon"><use href="#icon-check"></use></svg>
-              <p>
-                <strong>Gültige Dokumente:</strong> Gültige Aufenthaltstitel (§
-                24) und Pässe liegen vor.
-              </p>
+              <div class="card-content">
+                <p>
+                  <strong>Gültige Dokumente:</strong> Gültige Aufenthaltstitel
+                  (§ 24) und Pässe liegen vor.
+                </p>
+              </div>
             </li>
           </ul>
         </div>
       </section>
 
-      <!-- Розділ 4: Що ми шукаємо -->
       <section id="what-we-seek">
         <div class="container">
           <h2>Was wir suchen</h2>
-          <ul class="icon-list">
-            <li>
+          <ul class="feature-grid">
+            <li class="feature-card">
               <svg class="icon"><use href="#icon-check"></use></svg>
-              <p><strong>Zimmer:</strong> 1-2 Zimmer</p>
+              <div class="card-content">
+                <p><strong>Zimmer:</strong> 1-2 Zimmer</p>
+              </div>
             </li>
-            <li>
+            <li class="feature-card">
               <svg class="icon"><use href="#icon-check"></use></svg>
-              <p><strong>Fläche:</strong> Bis 65 m²</p>
+              <div class="card-content">
+                <p><strong>Fläche:</strong> Bis 65 m²</p>
+              </div>
             </li>
-            <li>
+            <li class="feature-card">
               <svg class="icon"><use href="#icon-check"></use></svg>
-              <p>
-                <strong>Lage:</strong> Stadt
-                <span class="data-city-multiple"></span>
-              </p>
+              <div class="card-content">
+                <p>
+                  <strong>Lage:</strong> Stadt
+                  <span class="data-city-multiple"></span>
+                </p>
+              </div>
             </li>
-            <li>
+            <li class="feature-card">
               <svg class="icon"><use href="#icon-check"></use></svg>
-              <p>
-                <strong>Miete:</strong> Im Rahmen der Angemessenheitsgrenzen des
-                Jobcenters <span class="data-city-multiple"></span> (bis
-                <span id="data-rent-limit"></span> € Bruttokaltmiete).
-              </p>
+              <div class="card-content">
+                <p>
+                  <strong>Miete:</strong> Im Rahmen der Angemessenheitsgrenzen
+                  des Jobcenters <span class="data-city-multiple"></span> (bis
+                  <span id="data-rent-limit"></span> € Bruttokaltmiete).
+                </p>
+              </div>
             </li>
           </ul>
         </div>
       </section>
 
-      <!-- Розділ 5: Контакти -->
       <section id="contact">
         <div class="container">
           <h2>Wir freuen uns auf Ihre Nachricht!</h2>
@@ -222,7 +231,6 @@
       </section>
     </main>
 
-    <!-- 3. Футер (Підвал) -->
     <footer id="main-footer">
       <div class="container">
         <p>

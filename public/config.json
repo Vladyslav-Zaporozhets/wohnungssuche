@@ -1,13 +1,15 @@
 {
-  "person1": "Vlad",
-  "person2": "Hanna",
-  "lastname": "Zaporozhets",
-  "fullname": "Vladyslav & Hanna Zaporozhets",
-  "city": "Forchheim",
-  "region": "Franken",
-  "rentLimit": 607,
-  "studyField": "IT-Bereich (z.B. E-Commerce)",
-  "hobbyPerson2": "Fotografie und Lesen",
-  "phone": "[Ваш німецький номер мобільного]",
-  "email": "[Ваша email-адреса]"
+  "data-name1": "Vladyslav",
+  "data-name2": "Hanna",
+  "data-lastname": "Zaporozhets",
+  "data-city": "Forchheim",
+  "data-region": "Franken",
+  "data-rent-limit": 607,
+  "data-study-field": "IT-Bereich",
+  "data-hobby-person2": "Fotografie und Lesen",
+  "data-phone": "[Ваш німецький номер мобільного]",
+  "data-email": "[Ваша email-адреса]",
+
+  "data-name1-study": "Vladysla",
+  "data-name2-hobby": "Hanna"
 }
