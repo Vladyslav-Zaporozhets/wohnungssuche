@@ -1,8 +1,31 @@
 // src/app.js
 
 /**
+ * ДОПОМІЖНА ФУНКЦІЯ
+ * Безпечно знаходить елемент за ID і встановлює його textContent.
+ */
+const setText = (id, text) => {
+  const element = document.getElementById(id);
+  if (element) {
+    element.textContent = text;
+  } else {
+    console.warn(`Елемент з ID "${id}" не знайдено.`);
+  }
+};
+
+/**
+ * ДОПОМІЖНА ФУНКЦІЯ
+ * Знаходить всі елементи за класом і встановлює їх textContent.
+ */
+const setTextByClass = (className, text) => {
+  const elements = document.querySelectorAll(`.${className}`);
+  elements.forEach((el) => {
+    el.textContent = text;
+  });
+};
+
+/**
  * Ця функція завантажує та вставляє дані з config.json
- * у всі елементи HTML, які мають відповідні ID або класи.
  */
 async function loadAndInjectData() {
   try {
@@ -13,57 +36,46 @@ async function loadAndInjectData() {
     }
     const config = await response.json();
 
-    /**
-     * ДОПОМІЖНА ФУНКЦІЯ
-     * Безпечно знаходить елемент за ID і встановлює його textContent.
-     */
-    const setText = (id, text) => {
-      const element = document.getElementById(id);
-      if (element) {
-        element.textContent = text;
-      } else {
-        // Якщо ви бачите це в консолі, це означає, що ID в HTML
-        // не збігається з ID в app.js або config.json
-        console.warn(`Елемент з ID "${id}" не знайдено.`);
-      }
-    };
+    // --- ОНОВЛЕНО: Явна прив'язка даних ---
+    // (Ми більше не використовуємо цикл for...in, щоб уникнути конфліктів)
 
-    /**
-     * ДОПОМІЖНА ФУНКЦІЯ
-     * Знаходить всі елементи за класом і встановлює їх textContent.
-     */
-    const setTextByClass = (className, text) => {
-      const elements = document.querySelectorAll(`.${className}`);
-      elements.forEach((el) => {
-        el.textContent = text;
-      });
-    };
+    // 2. Прості дані (де ID в HTML = ключ в config.json)
+    setText("data-name1", config["data-name1"]);
+    setText("data-name2", config["data-name2"]);
+    setText("data-lastname", config["data-lastname"]);
+    setText("data-region", config["data-region"]);
+    setText("data-rent-limit", config["data-rent-limit"]);
+    setText("data-study-field", config["data-study-field"]);
+    setText("data-hobby-person2", config["data-hobby-person2"]);
+    setText("data-phone", config["data-phone"]);
+    setText("data-email", config["data-email"]);
+    setText("data-name1-study", config["data-name1-study"]);
+    setText("data-name2-hobby", config["data-name2-hobby"]);
 
-    // 2. Встановлюємо рік у футері
-    setText("data-year", new Date().getFullYear());
+    // 3. Спеціальна логіка для Міста (City)
+    const city = config["data-city"] || "Stadt";
+    setText("data-city-jobcenter", city); // Заповнюємо <span id="data-city-jobcenter">
+    setTextByClass("data-city-dynamic", city); // Заповнюємо ВСІ <span class="data-city-dynamic">
 
-    // 3. Обробляємо всі ключі з config.json
-    for (const key in config) {
-      const value = config[key];
-      setText(key, value);
-      setTextByClass(key, value); // Також шукаємо за класом
-    }
-
-    // 4. Окрема логіка для прізвища (воно в кількох місцях)
+    // 4. Окрема логіка для Прізвища
     const lastname = config["data-lastname"] || "Mustermann";
-    setText("data-lastname-title", lastname);
+
+    // ОНОВЛЕНО: Встановлюємо заголовок сторінки (document.title) напряму
+    document.title = `Wohnungssuche: Familie ${lastname}`;
+
+    // Встановлюємо прізвище в навігації та футері
+    // (Рядок 'data-lastname-title' видалено, оскільки він більше не потрібен)
     setText("data-lastname-nav", lastname);
     setText("data-lastname-footer", lastname);
 
-    // 5. Окрема логіка для повного імені
+    // 5. Спеціальна логіка для Повного імені
     const name1 = config["data-name1"] || "";
     const name2 = config["data-name2"] || "";
     const fullname = `${name1} & ${name2} ${lastname}`.trim();
     setText("data-fullname", fullname);
 
-    // 6. Окрема логіка для назви міста в Jobcenter
-    const city = config["data-city"] || "Stadt";
-    setText("data-city-jobcenter", city);
+    // 6. Рік у футері
+    setText("data-year", new Date().getFullYear());
   } catch (error) {
     console.error("Could not load or inject config data:", error);
     // Показати помилку користувачу
