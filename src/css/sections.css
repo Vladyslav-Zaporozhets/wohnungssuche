@@ -23,8 +23,8 @@
   margin-bottom: 2rem;
 }
 .hero-city-style {
-      font-weight: 700;
-    color: var(--color-primary);
+  font-weight: 700;
+  color: var(--color-primary);
 }
 .payment-info {
   background-color: var(--color-primary-light);
@@ -35,6 +35,18 @@
   font-weight: 600;
   font-size: 1.1rem;
 }
+
+/* ОНОВЛЕНО: Додано правило для strong (Завдання 2) */
+.payment-info strong {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+/* ОНОВЛЕНО: Додано text-align: center (Завдання 1) */
+.hero-image {
+  text-align: center;
+}
+
 .responsive-image {
   width: 100%;
   max-width: 450px;
@@ -42,6 +54,13 @@
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-lg);
   margin: 0 auto;
+}
+
+/* НОВИЙ СТИЛЬ: для підпису під фото (Завдання 1) */
+.hero-image-caption {
+  font-size: 0.95rem;
+  color: var(--color-muted);
+  margin-top: 0.75rem;
 }
 
 /* 2. Секція #about (Про нас) */
