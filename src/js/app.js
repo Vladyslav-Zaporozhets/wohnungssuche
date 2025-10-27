@@ -17,7 +17,7 @@ const setTextByClass = (className, text) => {
 async function loadAndInjectData() {
   try {
     // 1. Завантажуємо конфігурацію
-    const response = await fetch("./public/config.json");
+    const response = await fetch(`${import.meta.env.BASE_URL}config.json`);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
