@@ -1,0 +1,173 @@
+/* 1. Секція #hero (Головний екран) */
+#hero .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Дві колонки */
+  gap: 2rem;
+  align-items: center;
+}
+
+.hero-text h1 {
+  font-size: 2.5rem; /* 40px */
+  color: var(--color-dark);
+}
+
+.hero-text .subtitle {
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--color-muted);
+  margin-top: -0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Картка з інформацією про оплату */
+.payment-info {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-left: 5px solid var(--color-primary); /* Акцентна лінія */
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* Адаптивне фото */
+.responsive-image {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+  margin: 0 auto; /* Центрування в колонці */
+}
+
+/* 2. Секція #about (Про нас) */
+.about-content {
+  max-width: 800px; /* Робимо текст трохи вужчим для читабельності */
+  margin: 0 auto;
+}
+
+/* 3. Секції зі списками (#guarantees, #what-we-seek) */
+.icon-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 1.5rem;
+}
+
+.icon-list li {
+  display: flex;
+  align-items: flex-start;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.icon-list .icon {
+  /* Стилізація SVG іконки */
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0; /* Забороняємо іконці стискатися */
+  margin-right: 0.75rem;
+  color: var(--color-primary);
+}
+
+/* 4. Секція #contact (Контакти) */
+#contact .container {
+  text-align: center;
+  max-width: 600px; /* Вужчий контейнер для фокусу */
+}
+
+#contact .cta-text {
+  font-size: 1.15rem;
+  color: var(--color-muted);
+  margin-bottom: 2rem;
+}
+
+.contact-details {
+  display: inline-block; /* Щоб блок був по центру */
+  text-align: left;
+  background-color: var(--color-white);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--color-border);
+}
+
+.contact-details p {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.contact-details p:last-child {
+  margin-bottom: 0;
+}
+
+.contact-details strong {
+  display: inline-block;
+  min-width: 80px; /* Вирівнюємо значення */
+  color: var(--color-dark);
+}
+
+/* 5. Картка (для ключових характеристик) */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Три колонки */
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.card {
+  background-color: var(--color-white);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+}
+
+.card h3 {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+/* 6. Адаптивність (Медіа-запити) */
+
+/* Для планшетів і менших */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  #hero .container {
+    grid-template-columns: 1fr; /* Одна колонка */
+    text-align: center;
+  }
+
+  .hero-text {
+    order: 2; /* Текст іде після фото */
+  }
+
+  .responsive-image {
+    order: 1; /* Фото іде перед текстом */
+    margin-bottom: 2rem;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr; /* Одна колонка */
+  }
+}
+
+/* Для мобільних телефонів */
+@media (max-width: 480px) {
+  #main-header .container {
+    justify-content: center; /* Центруємо лого і навігацію */
+  }
+
+  #main-nav ul {
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+}

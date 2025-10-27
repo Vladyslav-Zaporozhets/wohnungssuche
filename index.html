@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wohnungssuche: Familie Zaporozhets</title>
+
+    <!-- Підключення шрифту Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Головний файл скриптів Vite (CSS імпортується через JS) -->
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body>
+    <!-- Іконка "Галочка" SVG (ми її стилізуємо в CSS) -->
+    <svg style="display: none">
+      <symbol
+        id="icon-check"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M20 6 9 17l-5-5"></path>
+      </symbol>
+    </svg>
+
+    <!-- Навігація (Header) -->
+    <header class="navbar">
+      <nav class="container navbar-content">
+        <div class="navbar-brand">
+          Familie <span id="data-lastname-nav"></span>
+        </div>
+        <div class="navbar-links">
+          <a href="#about">Über Uns</a>
+          <a href="#guarantees">Sicherheiten</a>
+          <a href="#gesuch">Unser Gesuch</a>
+          <a href="#contact">Kontakt</a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Основний контейнер -->
+    <main class="container">
+      <!-- Розділ 1: Привітання (Hero) -->
+      <section id="home" class="hero-section card">
+        <!-- Фото -->
+        <div class="hero-image-wrapper">
+          <!-- 
+                  ПОРАДА: Покладіть ваше фото у папку 'public'
+                  і назвіть його 'familienfoto.jpg'.
+                  Тоді просто змініть 'src' нижче на '/familienfoto.jpg'
+                -->
+          <img
+            src="https://placehold.co/600x400/E0E7FF/3730a3?text=Unser+Foto"
+            alt="Foto von Vladyslav und Hanna"
+            class="hero-image"
+            onerror="this.src='https://placehold.co/600x400/E0E7FF/3730a3?text=Foto+fehlt'; this.alt='Platzhalterbild'"
+          />
+          <p class="image-caption" id="data-fullname-pic"></p>
+        </div>
+
+        <!-- Текст привітання -->
+        <div class="hero-content">
+          <h1 class="hero-title">Herzlich Willkommen!</h1>
+          <h2 class="hero-subtitle">
+            Ein zuverlässiges, freundliches Ehepaar sucht ein neues Zuhause in
+            <span id="data-city"></span>.
+          </h2>
+
+          <!-- Ключовий факт: Оплата -->
+          <div class="info-box success">
+            <h3>Finanzielle Sicherheit</h3>
+            <p>
+              Gesicherte Mietzahlung durch das Jobcenter
+              <span id="data-city-jobcenter"></span>.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Розділ 2: Про Нас -->
+      <section id="about" class="content-section card">
+        <h2>Über Uns</h2>
+        <p>
+          Wir sind <span id="data-name1"></span> und
+          <span id="data-name2"></span> <span id="data-lastname"></span>, ein
+          30-jähriges Ehepaar aus der Ukraine. Aufgrund der Situation in unserem
+          Heimatland bauen wir uns derzeit eine neue, stabile Zukunft in
+          Deutschland auf und möchten in
+          <span class="data-city-multiple"></span> ein langfristiges Zuhause
+          finden.
+        </p>
+        <p>
+          Wir sind beide ausgebildete Marketing-Spezialisten mit
+          Universitätsabschluss. Um uns hier beruflich schnell zu integrieren,
+          lernen wir beide intensiv Deutsch (aktuell A2-Niveau).
+        </p>
+        <p>
+          <span id="data-name1-study"></span> absolviert zusätzlich eine
+          Weiterbildung im <span id="data-study-field"></span>, um seine
+          kaufmännischen Fähigkeiten mit technischem Know-how zu verbinden und
+          sich als gefragter Spezialist zu etablieren.
+        </p>
+        <p>
+          <span id="data-name2-hobby"></span> ist eine sehr organisierte und
+          kreative Persönlichkeit. Sie kümmert sich um das Management unseres
+          Haushalts und interessiert sich in ihrer Freizeit für
+          <span id="data-hobby-person2"></span>.
+        </p>
+        <p>
+          Gemeinsam sind wir ein sehr ruhiges Team. Wir kochen gerne, genießen
+          die Natur hier in <span id="data-region"></span>. Ein gutes und
+          respektvolles Verhältnis zu unseren Nachbarn und zu Ihnen als
+          Vermieter ist für uns selbstverständlich.
+        </p>
+
+        <!-- Ключові характеристики -->
+        <ul class="checklist">
+          <li>
+            <svg class="check-icon"><use href="#icon-check"></use></svg>
+            <span>Keine Haustiere</span>
+          </li>
+          <li>
+            <svg class="check-icon"><use href="#icon-check"></use></svg>
+            <span>Ruhig, ordentlich und zuverlässig</span>
+          </li>
+          <li>
+            <svg class="check-icon"><use href="#icon-check"></use></svg>
+            <span>An einem langfristigen Mietverhältnis sehr interessiert</span>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Розділ 3: Гарантії -->
+      <section id="guarantees" class="content-section">
+        <h2 class="section-title">Ihre Sicherheiten als Vermieter</h2>
+        <div class="grid-2-cols">
+          <!-- Картка 1: Оплата -->
+          <div class="card card-icon">
+            <svg class="check-icon"><use href="#icon-check"></use></svg>
+            <div>
+              <h3>Garantierte Zahlung</h3>
+              <p>
+                Pünktliche und garantierte Mietzahlung durch das Jobcenter
+                <span class="data-city-multiple"></span>. Die offizielle
+                Zusicherung (Mietübernahme) wird sofort vorgelegt.
+              </p>
+            </div>
+          </div>
+          <!-- Картка 2: SCHUFA -->
+          <div class="card card-icon">
+            <svg class="check-icon"><use href="#icon-check"></use></svg>
+            <div>
+              <h3>Positive SCHUFA</h3>
+              <p>
+                Aktuelle und positive SCHUFA-Auskünfte liegen vor und werden auf
+                Wunsch sofort übermittelt.
+              </p>
+            </div>
+          </div>
+          <!-- Картка 3: Страхування -->
+          <div class="card card-icon">
+            <svg class="check-icon"><use href="#icon-check"></use></svg>
+            <div>
+              <h3>Haftpflichtversicherung</h3>
+              <p>
+                Eine private Haftpflichtversicherung wird zum Einzug sofort
+                abgeschlossen.
+              </p>
+            </div>
+          </div>
+          <!-- Картка 4: Документи -->
+          <div class="card card-icon">
+            <svg class="check-icon"><use href="#icon-check"></use></svg>
+            <div>
+              <h3>Gültige Dokumente</h3>
+              <p>Gültige Aufenthaltstitel (§ 24) und Pässe liegen vor.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Розділ 4: Що ми шукаємо -->
+      <section id="gesuch" class="content-section">
+        <h2 class="section-title">Was wir suchen</h2>
+        <div class="card info-box-highlight">
+          <dl class="search-details">
+            <div>
+              <dt>Zimmer:</dt>
+              <dd>1-2 Zimmer</dd>
+            </div>
+            <div>
+              <dt>Fläche:</dt>
+              <dd>Bis 65 m²</dd>
+            </div>
+            <div>
+              <dt>Lage:</dt>
+              <dd>Stadt <span class="data-city-multiple"></span></dd>
+            </div>
+            <div>
+              <dt>Miete:</dt>
+              <dd>
+                Im Rahmen der Angemessenheitsgrenzen des Jobcenters
+                <span class="data-city-multiple"></span> (bis
+                <span id="data-rent-limit"></span> € Bruttokaltmiete).
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <!-- Розділ 5: Контакти -->
+      <section id="contact" class="content-section text-center">
+        <h2 class="section-title">Wir freuen uns auf Ihre Nachricht!</h2>
+        <p class="section-subtitle">
+          Gerne überzeugen wir Sie bei einem persönlichen Besichtigungstermin
+          von unserer Zuverlässigkeit.
+        </p>
+        <div class="card contact-box">
+          <div class="contact-item">
+            <span>Name:</span>
+            <strong id="data-fullname"></strong>
+          </div>
+          <div class="contact-item">
+            <span>Telefon:</span>
+            <strong id="data-phone"></strong>
+          </div>
+          <div class="contact-item">
+            <span>E-Mail:</span>
+            <strong id="data-email"></strong>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer (з приміткою про Datenschutz) -->
+    <footer class="footer">
+      <div class="container text-center">
+        <h3>Ein wichtiger Hinweis zum Datenschutz:</h3>
+        <p>
+          Alle relevanten Dokumente (SCHUFA, Ausweiskopien, Jobcenter-Bescheid)
+          senden wir Ihnen auf Anfrage selbstverständlich umgehend zu.
+        </p>
+        <p class="copyright">
+          &copy; <span id="data-year"></span> Familie
+          <span id="data-lastname-footer"></span>. Alle Rechte vorbehalten.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

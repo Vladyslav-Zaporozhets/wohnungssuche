@@ -1,0 +1,90 @@
+/* --- Стилі розмітки (layout.css) --- */
+
+/* 1. Контейнер */
+.container {
+  max-width: 960px; /* Максимальна ширина контенту */
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem; /* 24px */
+  padding-right: 1.5rem; /* 24px */
+}
+
+/* 2. Хедер (Шапка сайту) */
+#main-header {
+  width: 100%;
+  padding: 1rem 0;
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  position: sticky; /* Робимо хедер "липким" */
+  top: 0;
+  z-index: 10;
+}
+
+#main-header .container {
+  display: flex;
+  justify-content: space-between; /* Розносимо лого та навігацію */
+  align-items: center;
+  flex-wrap: wrap; /* Дозволяємо перенос на малих екранах */
+}
+
+.logo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  text-decoration: none;
+}
+
+.logo:hover {
+  text-decoration: none;
+  color: var(--color-primary);
+}
+
+/* 3. Навігація */
+#main-nav ul {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem; /* Відстань між пунктами */
+  flex-wrap: wrap; /* Перенос пунктів на малих екранах */
+}
+
+#main-nav a {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--color-muted);
+  text-decoration: none;
+  padding: 0.5rem 0;
+  transition: color 0.2s;
+}
+
+#main-nav a:hover,
+#main-nav a.active {
+  /* Можна додати клас active через JS */
+  color: var(--color-primary);
+}
+
+/* 4. Футер (Підвал) */
+#main-footer {
+  padding: 2rem 0;
+  background-color: var(--color-white);
+  border-top: 1px solid var(--color-border);
+  margin-top: 3rem;
+  text-align: center;
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+
+#main-footer p {
+  margin: 0;
+}
+
+/* 5. Загальні стилі для секцій */
+main > section {
+  padding: 3rem 0; /* Відступ зверху/знизу для кожної секції */
+  border-bottom: 1px solid var(--color-border);
+}
+
+main > section:last-child {
+  border-bottom: none;
+}
