@@ -1,9 +1,3 @@
-// src/app.js
-
-/**
- * ДОПОМІЖНА ФУНКЦІЯ
- * Безпечно знаходить елемент за ID і встановлює його textContent.
- */
 const setText = (id, text) => {
   const element = document.getElementById(id);
   if (element) {
@@ -13,10 +7,6 @@ const setText = (id, text) => {
   }
 };
 
-/**
- * ДОПОМІЖНА ФУНКЦІЯ
- * Знаходить всі елементи за класом і встановлює їх textContent.
- */
 const setTextByClass = (className, text) => {
   const elements = document.querySelectorAll(`.${className}`);
   elements.forEach((el) => {
@@ -24,22 +14,15 @@ const setTextByClass = (className, text) => {
   });
 };
 
-/**
- * Ця функція завантажує та вставляє дані з config.json
- */
 async function loadAndInjectData() {
   try {
     // 1. Завантажуємо конфігурацію
-    const response = await fetch("/config.json");
+    const response = await fetch("./public/config.json");
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     const config = await response.json();
 
-    // --- ОНОВЛЕНО: Явна прив'язка даних ---
-    // (Ми більше не використовуємо цикл for...in, щоб уникнути конфліктів)
-
-    // 2. Прості дані (де ID в HTML = ключ в config.json)
     setText("data-name1", config["data-name1"]);
     setText("data-name2", config["data-name2"]);
     setText("data-lastname", config["data-lastname"]);
