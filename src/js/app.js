@@ -69,6 +69,7 @@ async function loadAndInjectData() {
     const name2 = config["data-name2"] || "";
     const fullname = `${name1} & ${name2} ${lastname}`.trim();
     setText("data-fullname", fullname);
+    setText("data-fullname-hero", fullname); // <-- ОНОВЛЕНО: Додано для підпису під фото
 
     // 6. Рік у футері
     setText("data-year", new Date().getFullYear());
