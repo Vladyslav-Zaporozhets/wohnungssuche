@@ -32,8 +32,8 @@
   color: var(--color-dark);
   padding: 1.5rem;
   border-radius: var(--border-radius);
-  font-weight: 600;
   font-size: 1.1rem;
+  line-height: 1.5;
 }
 
 /* ОНОВЛЕНО: Додано правило для strong (Завдання 2) */
