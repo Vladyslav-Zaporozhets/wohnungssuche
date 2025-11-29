@@ -29,6 +29,7 @@
   flex-wrap: wrap;
 }
 
+/* ОНОВЛЕНО: Додано display: flex та gap */
 .logo {
   font-size: 1.25rem;
   font-weight: 700;
@@ -36,6 +37,16 @@
   text-decoration: none;
   /* Дозволяємо лого зменшуватись, щоб кнопка меню влізла */
   flex-shrink: 1;
+  /* Нові стилі для іконки */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* Відстань між іконкою та текстом */
+}
+
+/* НОВИЙ СТИЛЬ: для іконки логотипу */
+.logo-icon {
+  width: 24px;
+  height: 24px;
 }
 
 .logo:hover {

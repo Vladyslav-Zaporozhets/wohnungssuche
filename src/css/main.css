@@ -33,6 +33,12 @@
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --shadow-lg:
     0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --color-success: #16a34a; /* Tailwind Green 600 */
+  /* ОНОВЛЕНО: Додаємо світлий варіант */
+  --color-success-light: #f0fdf4; /* Tailwind Green 50 */
+
+  --border-radius: 0.5rem; /* 8px (трохи збільшимо) */
+  /* ... */
 }
 
 /* 3. Загальні стилі */
@@ -126,4 +132,47 @@ img {
 .error-message i {
   color: var(--color-muted);
   margin-top: 1rem;
+}
+
+/* --- Кнопка завантаження (Виправлена) --- */
+.btn-download {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center; /* Центрування на мобільних */
+  gap: 0.75rem;
+  background-color: var(--color-primary);
+  color: var(
+    --color-white
+  ) !important; /* !important перебиває глобальний стиль посилань */
+  padding: 0.8rem 1.5rem; /* Трохи більша зона для пальця */
+  border-radius: var(--border-radius);
+  text-decoration: none !important; /* Прибирає підкреслення */
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-sm);
+  margin-top: 1.5rem;
+
+  /* Мобільна безпека */
+  max-width: 100%; /* Щоб не вилазила за екран */
+  white-space: normal; /* Дозволяє перенос тексту, якщо екран дуже вузький */
+  text-align: center;
+}
+
+.btn-download:hover {
+  background-color: var(--color-primary-dark);
+  color: var(--color-white) !important; /* Текст залишається білим! */
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-download:active {
+  transform: translateY(0);
+}
+
+.btn-download .icon {
+  width: 20px;
+  height: 20px;
+  stroke-width: 2.5;
+  flex-shrink: 0; /* Іконка не сплющується */
 }
