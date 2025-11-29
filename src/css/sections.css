@@ -300,7 +300,4 @@
   .contact-details {
     padding: 1.5rem;
   }
-  #what-we-seek .feature-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
