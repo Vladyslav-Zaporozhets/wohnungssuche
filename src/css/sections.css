@@ -1,292 +1,341 @@
-/* --- sections.css (Повна оновлена версія) --- */
+/* --- sections.css (Modern Update) --- */
 
-/* 1. Секція #hero (Головний екран) */
+main > section {
+  padding: 5rem 0; /* Більше повітря між секціями */
+}
+
+/* --- 1. HERO SECTION --- */
 #hero .container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
+  grid-template-columns: 1.1fr 0.9fr; /* Тексту трохи більше місця */
+  gap: 4rem;
   align-items: center;
 }
-#hero .container > h2 {
-  text-align: left; /* Перебиваємо загальне правило */
-}
+
 .hero-text h1 {
-  font-size: 2.75rem;
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
   color: var(--color-dark);
-  text-align: left; /* Перебиваємо загальне правило */
+  line-height: 1.1;
 }
+
 .hero-text .subtitle {
   font-size: 1.25rem;
+  color: var(--color-text-body);
+  margin-bottom: 2.5rem;
   font-weight: 400;
-  color: var(--color-muted);
-  margin-top: -0.5rem;
-  margin-bottom: 2rem;
+  max-width: 90%;
 }
-.hero-city-style {
-  font-weight: 700;
-  color: var(--color-primary);
-}
-.payment-info {
-  /* ОНОВЛЕНО: Нові кольори (зелені) */
-  background-color: var(--color-success-light);
-  border: 1px solid var(--color-success);
-  color: var(--color-dark);
 
+.hero-city-style {
+  color: var(--color-primary);
+  font-weight: 700;
+  position: relative;
+  white-space: nowrap;
+}
+/* Підкреслення міста для акценту */
+.hero-city-style::after {
+  content: "";
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--color-primary);
+  opacity: 0.2;
+  border-radius: 2px;
+}
+
+/* Блок з інформацією про оплату - ОНОВЛЕНО */
+.payment-info {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-success-bg);
+  border-left: 4px solid var(--color-success); /* Зелена лінія зліва */
+  box-shadow: var(--shadow-md);
   padding: 1.5rem;
   border-radius: var(--border-radius);
-  font-size: 1.1rem;
-
-  /* ОНОВЛЕНО: Flexbox для іконки і тексту */
   display: flex;
-  align-items: flex-start; /* Вирівнювання по верху */
-  gap: 1rem; /* Відстань між іконкою та текстом */
+  align-items: flex-start;
+  gap: 1rem;
+  position: relative;
+  overflow: hidden;
 }
 
-/* НОВИЙ СТИЛЬ: для іконки в плашці */
+/* Легкий фоновий патерн для блоку оплати */
+.payment-info::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(
+    circle,
+    var(--color-success-bg) 0%,
+    transparent 70%
+  );
+  opacity: 0.5;
+  pointer-events: none;
+}
+
 .payment-info .icon {
-  width: 24px;
-  height: 24px;
-  flex-shrink: 0;
   color: var(--color-success);
-  margin-top: 3px; /* Трохи опустити для кращого візуального центрування */
+  background: var(--color-success-bg);
+  padding: 8px;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
 }
 
-/* НОВИЙ СТИЛЬ: для обгортки тексту */
-.payment-info-text {
-  flex-grow: 1;
-}
-
-/* ОНОВЛЕНО: Стиль для strong залишається */
 .payment-info strong {
   display: block;
+  font-size: 1.05rem;
+  color: var(--color-dark);
   margin-bottom: 0.25rem;
-  font-weight: 600;
 }
 
-/* ОНОВЛЕНО: Старий стиль для .hero-image */
+.payment-info span {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+}
+
+/* Фото в Hero секції */
 .hero-image {
+  position: relative;
   text-align: center;
 }
-/* ... */
 
 .responsive-image {
   width: 100%;
-  max-width: 450px;
+  max-width: 420px;
   height: auto;
-  border-radius: var(--border-radius);
-  box-shadow: var(--shadow-lg);
+  border-radius: 20px; /* Більш кругле */
+  box-shadow: var(--shadow-lg); /* Глибока тінь */
   margin: 0 auto;
+  transition: transform 0.3s ease;
 }
 
-/* НОВИЙ СТИЛЬ: для підпису під фото (Завдання 1) */
+.responsive-image:hover {
+  transform: scale(1.01);
+}
+
 .hero-image-caption {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: var(--color-muted);
-  margin-top: 0.75rem;
+  margin-top: 1rem;
+  font-style: italic;
 }
 
-/* 2. Секція #about (Про нас) */
+/* --- 2. ABOUT & CARDS --- */
+#about,
+#what-we-seek {
+  background-color: var(--color-white);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+main > section .container > h2 {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
 .about-content {
   max-width: 800px;
   margin: 0 auto;
 }
 .about-content p {
-  font-size: 1.05rem;
-  line-height: 1.7;
+  font-size: 1.1rem;
+  line-height: 1.75;
+  color: var(--color-text-body);
+  margin-bottom: 1.5rem;
 }
 
-/* 3. БЛОЧНИЙ ФОРМАТ (для #about, #guarantees, #what-we-seek) */
+/* Grid для карток */
 .feature-grid {
   display: grid;
   gap: 1.5rem;
   list-style: none;
   padding: 0;
-  margin-top: 0;
-  grid-template-columns: 1fr;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
 }
+
+/* Загальний стиль картки - Modern look */
 .feature-card {
   background-color: var(--color-white);
   border-radius: var(--border-radius);
-  border: 1px solid var(--color-border);
-  box-shadow: var(--shadow-md);
-  padding: 2rem;
-  transition: all 0.2s ease-in-out;
-  display: flex;
-  align-items: flex-start;
-  position: relative;
-}
-.feature-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-lg);
-}
-.feature-card .icon {
-  width: 24px;
-  height: 24px;
-  flex-shrink: 0;
-  margin-right: 1.25rem;
-  color: var(--color-primary);
-  margin-top: 5px;
-}
-.feature-card .card-content {
-  flex-grow: 1;
-}
-.feature-card .card-content p {
-  margin: 0;
-  font-size: 1.05rem;
-  line-height: 1.6;
-}
-.feature-card .card-content p strong {
-  display: block;
-  font-size: 1.15rem;
-  color: var(--color-dark);
-  margin-bottom: 0.35rem;
+  border: 1px solid transparent; /* Для плавного переходу */
+  box-shadow: var(--shadow-sm);
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  height: 100%;
 }
 
-/* --- ОНОВЛЕНО: Специфічні стилі для #about (Eigenschaften) --- */
+/* Ефект при наведенні */
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-primary-light);
+}
+
+/* ABOUT Specific */
 #about .feature-grid {
   grid-template-columns: repeat(3, 1fr);
-  max-width: none;
+  margin-top: 2rem;
 }
+
 #about .feature-card {
   display: flex;
-  flex-direction: row;
-  align-items: center; /* Центруємо галочку і текст по вертикалі */
-  text-align: left;
-  padding: 1.5rem; /* Залишаємо компактний padding */
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: var(--color-bg-body); /* Трохи темніший фон для контрасту */
+  box-shadow: none;
 }
-/* ОНОВЛЕНО: Замінюємо коло на галочку */
+
+#about .feature-card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* ОНОВЛЕНО: Замінили галочку на ЗІРКУ (Star Icon) */
 #about .feature-card::before {
   content: "";
-  display: inline-block;
-  flex-shrink: 0;
-  width: 1.25rem; /* Розмір іконки (20px) */
-  height: 1.25rem; /* Розмір іконки (20px) */
-  margin-right: 0.75rem; /* Відступ справа */
-  background-color: var(--color-success); /* Колір іконки */
-  /* Використовуємо SVG-іконку як маску */
-  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E");
+  width: 28px; /* Трохи більша зірка */
+  height: 28px;
+  margin-bottom: 1rem;
+  background-color: var(
+    --color-success
+  ); /* Можна змінити на --color-primary або золотий, якщо хочеш */
+  /* SVG Star Icon mask */
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='currentColor' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'/%3E%3C/svg%3E");
   mask-size: contain;
   mask-repeat: no-repeat;
   mask-position: center;
-  /* Видаляємо стилі кола */
-  border-radius: 0;
-}
-#about .feature-card h3 {
-  font-size: 1.1rem;
-  color: var(--color-dark);
-  margin: 0;
-  line-height: 1.4;
 }
 
-/* --- Специфічні стилі для #guarantees (Sicherheiten) --- */
+/* GUARANTEES Specific */
 #guarantees .feature-grid {
   grid-template-columns: repeat(2, 1fr);
-  max-width: none;
-}
-/* Переконуємось, що SVG-іконка тут теж зелена */
-#guarantees .feature-card .icon {
-  color: var(--color-success);
-}
-/* Ховаємо псевдоелемент, бо тут є SVG */
-#guarantees .feature-card::before {
-  display: none;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
-/* --- Специфічні стилі для #what-we-seek (Was wir suchen) --- */
-#what-we-seek .feature-grid {
-  grid-template-columns: repeat(3, 1fr);
-  max-width: none;
+#guarantees .feature-card {
+  display: flex;
+  align-items: flex-start;
   gap: 1rem;
 }
-#what-we-seek .feature-card {
-  display: block;
-  text-align: center;
-  padding: 1.5rem;
-}
-#what-we-seek .feature-card::before {
-  display: none;
-}
-#what-we-seek .feature-card .icon {
-  display: none; /* Ховаємо SVG-іконку (хоча її там і не було) */
-}
-#what-we-seek .feature-card .card-content p {
-  font-size: 1.05rem;
-}
-#what-we-seek .feature-card .card-content p strong {
-  font-size: 1.1rem;
-  color: var(--color-primary);
-  margin-bottom: 0.25rem;
-}
-#what-we-seek .feature-grid li:last-child {
-  grid-column: 1 / -1;
+
+#guarantees .icon {
+  width: 24px;
+  height: 24px;
+  color: var(--color-success);
+  flex-shrink: 0;
+  margin-top: 2px;
 }
 
-/* 4. Секція #contact (Контакти) */
+/* WHAT WE SEEK Specific */
+#what-we-seek .feature-grid {
+  grid-template-columns: repeat(4, 1fr); /* 4 в ряд */
+  gap: 1rem;
+}
+
+#what-we-seek .feature-card {
+  text-align: center;
+  padding: 2rem 1rem;
+  border: 1px solid var(--color-border);
+  box-shadow: none;
+}
+#what-we-seek .feature-card:hover {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-sm);
+  background-color: var(--color-primary-light);
+}
+
+/* ОНОВЛЕНО: Стилі для нових іконок */
+#what-we-seek .icon {
+  color: var(--color-primary);
+  width: 36px; /* Трохи більші для акценту */
+  height: 36px;
+  margin-bottom: 1rem;
+  stroke-width: 1.5; /* Більш витончені лінії */
+}
+
+#what-we-seek p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+#what-we-seek strong {
+  display: block;
+  font-size: 1.1rem;
+  color: var(--color-dark);
+  margin-bottom: 0.25rem;
+}
+
+/* CONTACT Section */
 #contact .container {
   text-align: center;
   max-width: 700px;
 }
-#contact .cta-text {
-  font-size: 1.15rem;
-  color: var(--color-muted);
-  margin-bottom: 2.5rem;
-}
+
 .contact-details {
-  display: inline-block;
-  text-align: left;
   background-color: var(--color-white);
-  padding: 2.5rem;
-  border-radius: var(--border-radius);
+  padding: 3rem;
+  border-radius: 20px;
   box-shadow: var(--shadow-lg);
   border: 1px solid var(--color-border);
-}
-.contact-details p {
-  font-size: 1.1rem;
-  margin-bottom: 1rem;
-}
-.contact-details p:last-child {
-  margin-bottom: 0;
-}
-.contact-details strong {
   display: inline-block;
-  min-width: 80px;
-  color: var(--color-dark);
+  width: 100%;
+  text-align: left;
 }
 
-/* 5. Адаптивність (Медіа-запити) */
-@media (max-width: 768px) {
-  h1 {
-    font-size: 2.25rem;
-  }
-  h2 {
-    font-size: 1.75rem;
-  }
+.contact-details p {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+.contact-details p:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+/* --- MEDIA QUERIES --- */
+@media (max-width: 900px) {
   #hero .container {
     grid-template-columns: 1fr;
     text-align: center;
-    gap: 2rem;
+    gap: 3rem;
   }
-  #hero .container > h2,
-  #hero .hero-text h1 {
-    text-align: center;
+  .hero-text h1 {
+    font-size: 2.5rem;
   }
   .hero-text {
     order: 2;
   }
-  .responsive-image {
+  .hero-image {
     order: 1;
-    margin-bottom: 2rem;
   }
+  .hero-text .subtitle {
+    margin: 0 auto 2rem auto;
+  }
+
+  .payment-info {
+    text-align: left;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
   #about .feature-grid,
-  #guarantees .feature-grid,
-  #what-we-seek .feature-grid {
+  #guarantees .feature-grid {
     grid-template-columns: 1fr;
   }
-  #what-we-seek .feature-grid li:last-child {
-    grid-column: auto;
+
+  #what-we-seek .feature-grid {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
@@ -294,10 +343,21 @@
   main > section {
     padding: 3rem 0;
   }
+  h1 {
+    font-size: 2rem;
+  }
   .feature-card {
-    padding: 1.5rem;
+    padding: 1.25rem;
   }
   .contact-details {
     padding: 1.5rem;
+  }
+  .contact-details p {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  #what-we-seek .feature-grid {
+    grid-template-columns: 1fr;
   }
 }

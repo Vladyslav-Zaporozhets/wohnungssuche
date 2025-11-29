@@ -1,44 +1,39 @@
-/* --- Основний файл стилів (main.css) --- */
-
 /* 1. Імпорт шрифтів */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 
-/* 2. CSS Змінні (Оновлена палітра та тіні) */
+/* 2. CSS Змінні */
 :root {
-  --font-family-base:
-    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
-    Arial, sans-serif;
+  --font-family-base: "Inter", system-ui, -apple-system, sans-serif;
 
-  /* Нова, більш насичена основна палітра */
-  --color-primary: #2563eb; /* Tailwind Blue 600 */
-  --color-primary-dark: #1d4ed8; /* Tailwind Blue 700 */
-  --color-primary-light: #eff6ff; /* Tailwind Blue 50 (для фону) */
+  /* ОНОВЛЕНО: Більш "корпоративний" та надійний синій */
+  --color-primary: #0f62fe; /* IBM Blue стиль - викликає довіру */
+  --color-primary-dark: #0043ce;
+  --color-primary-light: #edf5ff;
 
-  /* Більш м'які відтінки сірого */
-  --color-secondary: #f9fafb; /* Tailwind Gray 50 (основний фон) */
+  /* ОНОВЛЕНО: Фон не чисто білий, а ледь сірий для контрасту */
+  --color-bg-body: #f4f6f8;
   --color-white: #ffffff;
-  --color-dark: #1f2937; /* Tailwind Gray 800 (заголовки) */
-  --color-text-body: #374151; /* ОНОВЛЕНО: Tailwind Gray 700 (основний текст) */
-  --color-muted: #6b7280; /* Tailwind Gray 500 (приглушений текст) */
-  --color-border: #e5e7eb; /* Tailwind Gray 200 (рамки) */
-  --color-error: #dc3545; /* Колір помилки (залишаємо) */
 
-  /* НОВИЙ КОЛІР: Зелений для галочок */
-  --color-success: #16a34a; /* Tailwind Green 600 */
+  --color-dark: #161616; /* Майже чорний для тексту */
+  --color-text-body: #525252; /* М'який сірий для читання */
+  --color-muted: #6f6f6f;
 
-  --border-radius: 0.5rem; /* 8px (трохи збільшимо) */
+  --color-border: #e0e0e0;
 
-  /* Сучасні, м'які тіні */
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-lg:
-    0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --color-success: #16a34a; /* Tailwind Green 600 */
-  /* ОНОВЛЕНО: Додаємо світлий варіант */
-  --color-success-light: #f0fdf4; /* Tailwind Green 50 */
+  /* Зелений для успіху (галочки, фінанси) */
+  --color-success: #198038;
+  --color-success-bg: #defbe6;
 
-  --border-radius: 0.5rem; /* 8px (трохи збільшимо) */
-  /* ... */
+  --color-error: #da1e28;
+
+  --border-radius: 12px; /* Більш сучасне заокруглення */
+
+  /* Сучасні м'які тіні (Smooth Shadows) */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.02), 0 1px 2px rgba(0, 0, 0, 0.03);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.03);
+  --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.06), 0 4px 8px rgba(0, 0, 0, 0.04);
+  --shadow-hover:
+    0 16px 32px rgba(0, 0, 0, 0.08), 0 8px 16px rgba(0, 0, 0, 0.06);
 }
 
 /* 3. Загальні стилі */
@@ -50,37 +45,36 @@
 
 html {
   font-size: 16px;
-  scroll-behavior: smooth; /* Плавна прокрутка до якоря */
+  scroll-behavior: smooth;
 }
 
 body {
   font-family: var(--font-family-base);
   line-height: 1.6;
-  color: var(--color-text-body); /* ОНОВЛЕНО: Використовуємо м'якший колір */
-  background-color: var(--color-secondary); /* Використовуємо новий фон */
+  color: var(--color-text-body);
+  background-color: var(--color-bg-body);
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 h1,
 h2,
-h3 {
+h3,
+h4 {
   margin-bottom: 1rem;
   font-weight: 700;
-  line-height: 1.3;
-  color: var(
-    --color-dark
-  ); /* ОНОВЛЕНО: Чітко вказуємо темний колір для заголовків */
+  line-height: 1.25;
+  color: var(--color-dark);
+  letter-spacing: -0.02em; /* Трохи щільніші заголовки */
 }
 
 h1 {
-  font-size: 2.25rem; /* 36px */
+  font-size: 2.5rem;
 }
 h2 {
-  font-size: 1.75rem; /* 28px */
+  font-size: 2rem;
 }
 h3 {
-  font-size: 1.25rem; /* 20px */
+  font-size: 1.25rem;
 }
 
 p {
@@ -90,12 +84,12 @@ p {
 a {
   color: var(--color-primary);
   text-decoration: none;
-  transition: color 0.2s ease-in-out;
+  font-weight: 500;
+  transition: all 0.2s ease;
 }
 
 a:hover {
   color: var(--color-primary-dark);
-  text-decoration: underline;
 }
 
 img {
@@ -104,75 +98,35 @@ img {
   display: block;
 }
 
-/* 4. Стиль для повідомлення про помилку */
-.error-message {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  text-align: center;
-  padding: 2rem;
-  background-color: var(--color-white);
-  color: var(--color-dark);
-}
-.error-message h1 {
-  color: var(--color-error);
-  font-size: 2rem;
-}
-.error-message p {
-  font-size: 1.1rem;
-  margin-bottom: 0.5rem;
-}
-.error-message code {
-  background-color: var(--color-secondary);
-  padding: 0.2rem 0.4rem;
-  border-radius: var(--border-radius);
-}
-.error-message i {
-  color: var(--color-muted);
-  margin-top: 1rem;
-}
-
-/* --- Кнопка завантаження (Виправлена) --- */
+/* Кнопка завантаження PDF - Зробимо її більш помітною */
 .btn-download {
   display: inline-flex;
   align-items: center;
-  justify-content: center; /* Центрування на мобільних */
+  justify-content: center;
   gap: 0.75rem;
   background-color: var(--color-primary);
-  color: var(
-    --color-white
-  ) !important; /* !important перебиває глобальний стиль посилань */
-  padding: 0.8rem 1.5rem; /* Трохи більша зона для пальця */
-  border-radius: var(--border-radius);
-  text-decoration: none !important; /* Прибирає підкреслення */
+  color: var(--color-white) !important;
+  padding: 1rem 2rem;
+  border-radius: 50px; /* Pill shape button */
   font-weight: 600;
   font-size: 1rem;
-  transition: all 0.2s ease;
-  box-shadow: var(--shadow-sm);
-  margin-top: 1.5rem;
-
-  /* Мобільна безпека */
-  max-width: 100%; /* Щоб не вилазила за екран */
-  white-space: normal; /* Дозволяє перенос тексту, якщо екран дуже вузький */
-  text-align: center;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  margin-top: 2rem;
+  width: auto;
 }
 
 .btn-download:hover {
   background-color: var(--color-primary-dark);
-  color: var(--color-white) !important; /* Текст залишається білим! */
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
 }
 
 .btn-download:active {
-  transform: translateY(0);
+  transform: translateY(-1px);
 }
 
 .btn-download .icon {
   width: 20px;
   height: 20px;
-  stroke-width: 2.5;
-  flex-shrink: 0; /* Іконка не сплющується */
 }
