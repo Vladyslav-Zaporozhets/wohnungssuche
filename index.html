@@ -27,7 +27,7 @@
     <meta property="og:type" content="website" />
     <meta
       property="og:image"
-      content="https://vladyslav-zaporozhets.github.io/wohnungssuche/og-image.jpg"
+      content="https://vladyslav-zaporozhets.github.io/wohnungssuche/og-image.png"
     />
 
     <link rel="icon" type="image/png" href="/wohnungssuche/favicon-96x96.png" sizes="96x96" />
@@ -39,11 +39,13 @@
     <meta name="msapplication-TileColor" content="#2563eb" />
     <meta name="theme-color" content="#ffffff" />
 
-    <script type="module" crossorigin src="/wohnungssuche/assets/index-Dx-epNjB.js"></script>
-    <link rel="stylesheet" crossorigin href="/wohnungssuche/assets/index-C2m0MsmK.css">
+    <script type="module" crossorigin src="/wohnungssuche/assets/index-DtK8_pVx.js"></script>
+    <link rel="stylesheet" crossorigin href="/wohnungssuche/assets/index-BgYCjQXp.css">
   </head>
   <body>
+    <!-- SVG Symbols Library -->
     <svg style="display: none">
+      <!-- Old Check Icon -->
       <symbol
         id="icon-check"
         viewBox="0 0 24 24"
@@ -55,6 +57,8 @@
       >
         <path d="M20 6 9 17l-5-5"></path>
       </symbol>
+
+      <!-- Shield Icon -->
       <symbol
         id="icon-shield"
         viewBox="0 0 24 24"
@@ -67,6 +71,7 @@
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
       </symbol>
 
+      <!-- Download Icon -->
       <symbol
         id="icon-download"
         viewBox="0 0 24 24"
@@ -79,6 +84,65 @@
         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
         <polyline points="7 10 12 15 17 10"></polyline>
         <line x1="12" y1="15" x2="12" y2="3"></line>
+      </symbol>
+
+      <!-- NEW: Home Icon (Zimmer) -->
+      <symbol
+        id="icon-home"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </symbol>
+
+      <!-- NEW: Maximize/Ruler Icon (Fläche) -->
+      <symbol
+        id="icon-maximize"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path
+          d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"
+        ></path>
+      </symbol>
+
+      <!-- NEW: Map Pin Icon (Lage) -->
+      <symbol
+        id="icon-map-pin"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+        <circle cx="12" cy="10" r="3"></circle>
+      </symbol>
+
+      <!-- NEW: Wallet Icon (Miete) -->
+      <symbol
+        id="icon-wallet"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M20 12V8H6a2 2 0 0 1-2-2c0-1.1.9-2 2-2h12v4"></path>
+        <path
+          d="M4 6v12a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2H4.012z"
+        ></path>
       </symbol>
     </svg>
 
@@ -158,29 +222,32 @@
           <p>
             Wir sind <span id="data-name1"></span> und
             <span id="data-name2"></span> <span id="data-lastname"></span>, ein
-            verheiratetes Paar (beide 30) aus der Ukraine. Da wir unsere Zukunft
-            langfristig in Deutschland aufbauen, suchen wir ein stabiles Zuhause
-            in <span class="data-city-dynamic"></span>.
+            Ehepaar (beide 30) aus der Ukraine. Da wir unseren Lebensmittelpunkt
+            langfristig nach Deutschland verlegt haben, suchen wir ein
+            dauerhaftes Zuhause in <span class="data-city-dynamic"></span>.
           </p>
           <p>
-            Wir sind beide <strong>erfahrene Marketing-Spezialisten</strong> mit
-            Universitätsabschluss. Aktuell konzentrieren wir uns auf unsere
-            Integration: Wir lernen intensiv Deutsch (A2/B1) und
-            <span id="data-name1"></span> bildet sich zusätzlich im IT-Bereich
+            Wir sind beide
+            <strong>qualifizierte Marketing-Spezialisten</strong> mit
+            Hochschulabschluss. Aktuell liegt unser Fokus voll auf der
+            beruflichen Integration: Wir vertiefen unsere Deutschkenntnisse
+            (A2/B1) und Vladyslav qualifiziert sich zusätzlich im IT-Bereich
             (E-Commerce) weiter.
           </p>
           <p>
-            In unserer Freizeit sind wir sehr ruhig. Wir kochen gerne, lesen und
-            genießen die Natur hier in <span id="data-region"></span>. Ein gutes
-            und respektvolles Verhältnis zur Nachbarschaft ist uns sehr wichtig.
+            Wir beschreiben uns als ruhige und ordnungsliebende Mieter. In
+            unserer Freizeit kochen wir gerne oder genießen die Natur in
+            <span id="data-region"></span>. Ein harmonisches und respektvolles
+            Miteinander in der Hausgemeinschaft ist uns sehr wichtig.
           </p>
 
           <h3 style="text-align: center; margin-top: 2rem">
             Unsere Eigenschaften:
           </h3>
           <div class="feature-grid">
+            <!-- Іконки тут задаються через CSS mask (Зірка) -->
             <div class="feature-card">
-              <h3>Nichtraucher & keine Haustiere</h3>
+              <h3>Keine Haustiere</h3>
             </div>
             <div class="feature-card">
               <h3>Ruhig & Zuverlässig</h3>
@@ -255,20 +322,21 @@
         <div class="container">
           <h2>Was wir suchen</h2>
           <ul class="feature-grid">
+            <!-- Оновлені іконки для кожного пункту -->
             <li class="feature-card">
-              <svg class="icon"><use href="#icon-check"></use></svg>
+              <svg class="icon"><use href="#icon-home"></use></svg>
               <div class="card-content">
                 <p><strong>Zimmer:</strong> 1 bis 2 Zimmer</p>
               </div>
             </li>
             <li class="feature-card">
-              <svg class="icon"><use href="#icon-check"></use></svg>
+              <svg class="icon"><use href="#icon-maximize"></use></svg>
               <div class="card-content">
                 <p><strong>Fläche:</strong> Bis ca. 65 m²</p>
               </div>
             </li>
             <li class="feature-card">
-              <svg class="icon"><use href="#icon-check"></use></svg>
+              <svg class="icon"><use href="#icon-map-pin"></use></svg>
               <div class="card-content">
                 <p>
                   <strong>Lage:</strong> Stadt
@@ -277,12 +345,11 @@
               </div>
             </li>
             <li class="feature-card">
-              <svg class="icon"><use href="#icon-check"></use></svg>
+              <svg class="icon"><use href="#icon-wallet"></use></svg>
               <div class="card-content">
                 <p>
                   <strong>Miete:</strong> Bis
-                  <span id="data-rent-limit"></span> € Bruttokaltmiete (Vom
-                  Jobcenter genehmigter Rahmen).
+                  <span id="data-rent-limit"></span> € Bruttokaltmiete
                 </p>
               </div>
             </li>
