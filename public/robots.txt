@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: [https://vladyslav-zaporozhets.github.io/wohnungssuche/sitemap.xml](https://vladyslav-zaporozhets.github.io/wohnungssuche/sitemap.xml)
