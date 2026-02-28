@@ -39,5 +39,7 @@ Vladyslav Zaporozhets Fullstack Web Developer & E-Commerce Manager
 
 I specialize in bridging the gap between business needs and technical solutions. This project is a testament to using modern web development tools to solve practical, real-life challenges.
 
+---
+
 ### 📄 License
 This project is personal. Feel free to use the structure as inspiration for your own German apartment search!
